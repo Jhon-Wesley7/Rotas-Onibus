@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotas de Ônibus</title>
+</head>
+<body>
+    <h1>Rotas de Ônibus</h1>
+    <a href="/add">Adicionar Rota</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        {% for route in routes %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ route.origin }}</td>
+                <td>{{ route.destination }}</td>
+                <td>{{ route.price }}</td>
+                <td>
+                    <a href="/edit/{{ loop.index - 1 }}">Editar</a>
+                    <a href="/delete/{{ loop.index - 1 }}">Excluir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
